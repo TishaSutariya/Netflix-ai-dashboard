@@ -144,24 +144,24 @@ page = st.sidebar.radio(
     ["🏠 Home", "🎯 Recommend", "🔍 Search", "🔥 Trending (2016-2026)", "📥 My Watchlist", "📊 Analytics"],
     key="sidebar_navigation"
 )
-
 banner_found = False
 
 for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
     banner = Path(banner_name)
 
     if banner.exists():
-        if banner.exists():
-            st.image(str(banner), use_container_width=True)
-        else:
-            st.title("🎬 Netflix AI Dashboard")
-        banner_found = True
-        break
+        try:
+            # Use absolute path and add error handling
+            banner_abs = banner.resolve()
+            st.image(str(banner_abs), use_container_width=True)
+            banner_found = True
+            break
+        except Exception as e:
+            # If this banner fails, try the next one
+            continue
 
 if not banner_found:
     st.title("🎬 Netflix AI Dashboard")
-
-if not banner_found:
     st.markdown("""
     <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                 padding: 40px; border-radius: 15px; margin-bottom: 30px; 
