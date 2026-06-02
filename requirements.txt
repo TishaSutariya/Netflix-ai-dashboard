@@ -8,4 +8,4 @@ joblib==1.4.0
 requests==2.32.0
 python-dotenv==1.0.1
 numpy>=1.26
-pillow>=10.2.0
+pillow>=10.2.0,<11
