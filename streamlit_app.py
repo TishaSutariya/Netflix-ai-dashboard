@@ -27,6 +27,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+import streamlit as st
+
+TMDB_API_KEY = st.secrets["TMDB_API_KEY"]
 if "user" not in st.session_state:
     st.session_state.user = ""
 
