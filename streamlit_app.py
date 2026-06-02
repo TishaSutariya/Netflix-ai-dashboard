@@ -149,7 +149,10 @@ banner_found = False
 for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
     banner = Path(banner_name)
     if banner.exists():
-        st.image(str(banner), use_container_width=True)
+        if banner:
+            st.image(banner, use_container_width=True)
+        else:
+            st.title("🎬 Netflix AI Dashboard")
         banner_found = True
         break
 
