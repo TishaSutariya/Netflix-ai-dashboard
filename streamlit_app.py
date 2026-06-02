@@ -149,10 +149,9 @@ banner_found = False
 
 for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
     banner = Path(banner_name)
-    st.write("DEBUG banner =", banner)
 
     if banner.exists():
-        st.image(str(banner), use_container_width=True)
+        st.image(banner, use_container_width=True)
         banner_found = True
         break
 
