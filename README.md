@@ -178,7 +178,7 @@ Movie Recommendations
 ### Home Dashboard
 ![Home Dashboard](screenshots/home-dashboard.png)
 ### Recommendation Engine
-![Recommendation Engine](screenshots/Recommendation.png)
+![Recommendation Engine](screenshots/Recommend.png)
 ### Search Interface
 ![Search Interface](screenshots/Search.png)
 ---
