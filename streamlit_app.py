@@ -27,8 +27,9 @@ st.set_page_config(
     layout=LAYOUT,
     initial_sidebar_state="expanded"
 )
-if not TMDB_API_KEY:
-    st.warning("TMDB API key is missing. Some features may not work.")
+import os
+
+TMDB_API_KEY = st.secrets.get("TMDB_API_KEY", os.getenv("TMDB_API_KEY", ""))
 
 if "user" not in st.session_state:
     st.session_state.user = ""
