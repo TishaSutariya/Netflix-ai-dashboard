@@ -1,28 +1,16 @@
-﻿# Python cache
-__pycache__/
+﻿__pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Virtual environment
 venv/
 env/
 
-# IDE
 .vscode/
 .idea/
 
-# System files
 .DS_Store
 
-# Environment variables (IMPORTANT)
 .env
 
-# Streamlit
 .streamlit/
-
-# Model files (optional if large - only if needed)
-# models/
-
-# Data (optional - uncomment if dataset is large)
-# data/
