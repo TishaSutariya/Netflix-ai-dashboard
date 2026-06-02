@@ -27,10 +27,8 @@ st.set_page_config(
     layout=LAYOUT,
     initial_sidebar_state="expanded"
 )
-
-import streamlit as st
-
-TMDB_API_KEY = st.secrets["TMDB_API_KEY"]
+if not TMDB_API_KEY:
+    st.warning("TMDB API key is missing. Some features may not work.")
 
 if "user" not in st.session_state:
     st.session_state.user = ""

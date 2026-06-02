@@ -4,7 +4,7 @@ Creates embeddings using SentenceTransformer and manages FAISS indices
 """
 
 import numpy as np
-import faiss
+from sklearn.neighbors import NearestNeighbors
 import joblib
 from sentence_transformers import SentenceTransformer
 from config import (
