@@ -27,7 +27,9 @@ PROCESSED_CSV = f"{PROCESSED_DATA_DIR}/netflix_processed.csv"
 # =================================
 # API KEYS
 # =================================
-TMDB_API_KEY = "f487182c848a98dcaddaeec6a7f47885"
+import os
+
+TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
 
 # =================================
