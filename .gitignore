@@ -1,0 +1,6 @@
+﻿__pycache__/
+.vscode/
+*.pyc
+
+netflix-ai-dashboard/
+Netflix-Recommendation-Dashboard/
