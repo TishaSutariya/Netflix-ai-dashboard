@@ -11,6 +11,7 @@ from pathlib import Path
 import requests
 import numpy as np
 from embeddings import ModelManager
+from sklearn.neighbors import NearestNeighbors
 from recommender import RecommendationEngine
 from config import (
     PAGE_TITLE,
@@ -30,6 +31,7 @@ st.set_page_config(
 import streamlit as st
 
 TMDB_API_KEY = st.secrets["TMDB_API_KEY"]
+
 if "user" not in st.session_state:
     st.session_state.user = ""
 
