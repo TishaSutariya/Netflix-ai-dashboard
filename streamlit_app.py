@@ -148,9 +148,11 @@ page = st.sidebar.radio(
 banner_found = False
 for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
     banner = Path(banner_name)
+    st.write("DEBUG banner =", banner)
     if banner.exists():
         if banner is not None:
-            st.image(str(banner), use_container_width=True)
+            if banner and str(banner) != "None":
+                st.image(str(banner), use_container_width=True)
         else:
             st.title("🎬 Netflix AI Dashboard")
         banner_found = True
