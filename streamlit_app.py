@@ -86,16 +86,29 @@ def get_poster(title):
     if title in st.session_state.poster_cache:
         return st.session_state.poster_cache[title]
     
+    # Check if API key exists
+    if not TMDB_API_KEY:
+        placeholder = "https://via.placeholder.com/300x450/1a1a2e/ffffff?text=No+API+Key"
+        st.session_state.poster_cache[title] = placeholder
+        return placeholder
+    
     try:
         data = safe_tmdb_api_cached(title)
         
-        if data.get("results") and len(data["results"]) > 0:
+        # Debug: Check what we got
+        if not data.get("results"):
+            placeholder = "https://via.placeholder.com/300x450/1a1a2e/ffffff?text=No+Result"
+            st.session_state.poster_cache[title] = placeholder
+            return placeholder
+        
+        if len(data["results"]) > 0:
             poster_path = data["results"][0].get("poster_path")
             if poster_path:
                 poster_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
                 st.session_state.poster_cache[title] = poster_url
                 return poster_url
     except Exception as e:
+        st.error(f"❌ Poster error for {title}: {str(e)}")  # Shows exact error
         pass
     
     # Professional fallback placeholder
@@ -152,16 +165,20 @@ for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
     if banner.exists():
         try:
             # Use absolute path and add error handling
-            banner_abs = banner.resolve()
-            st.image(str(banner_abs), use_container_width=True)
+            banner_abs = str(banner.resolve())
+            st.image(banner_abs, use_container_width=True)
             banner_found = True
             break
         except Exception as e:
-            # If this banner fails, try the next one
+            # If this banner fails to load, try next one
+            print(f"Could not load {banner_name}: {e}")  # Debug
             continue
+    # else: Continue to next banner name
 
 if not banner_found:
     st.title("🎬 Netflix AI Dashboard")
+
+if not banner_found:
     st.markdown("""
     <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                 padding: 40px; border-radius: 15px; margin-bottom: 30px; 
@@ -172,7 +189,6 @@ if not banner_found:
         </p>
     </div>
     """, unsafe_allow_html=True)
-
 if page == "🏠 Home":
     st.title("🎬 Netflix AI Recommendation Engine")
     
