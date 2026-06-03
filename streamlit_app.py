@@ -160,7 +160,7 @@ page = st.sidebar.radio(
 banner_found = False
 
 for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
-    banner = Path(banner_name)
+    banner = Path(banner.png)
 
     if banner.exists():
         try:
@@ -189,6 +189,8 @@ if not banner_found:
         </p>
     </div>
     """, unsafe_allow_html=True)
+
+
 if page == "🏠 Home":
     st.title("🎬 Netflix AI Recommendation Engine")
     
