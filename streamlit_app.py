@@ -157,6 +157,7 @@ page = st.sidebar.radio(
     ["🏠 Home", "🎯 Recommend", "🔍 Search", "🔥 Trending (2016-2026)", "📥 My Watchlist", "📊 Analytics"],
     key="sidebar_navigation"
 )
+
 banner_found = False
 
 for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
@@ -175,7 +176,6 @@ for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
     # else: Continue to next banner name
 if not banner_found:
     st.title("🎬 Netflix AI Dashboard")
-
 if not banner_found:
     st.markdown("""
     <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
