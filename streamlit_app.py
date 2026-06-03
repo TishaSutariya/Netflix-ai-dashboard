@@ -159,9 +159,8 @@ page = st.sidebar.radio(
 )
 banner_found = False
 
-for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
+for banner_name in ["banner.png"]:
     banner = Path(banner_name)
-
     if banner.exists():
         try:
             # Use absolute path and add error handling
@@ -174,7 +173,6 @@ for banner_name in ["banner.PNG", "banner.png", "Banner.png"]:
             print(f"Could not load {banner_name}: {e}")  # Debug
             continue
     # else: Continue to next banner name
-
 if not banner_found:
     st.title("🎬 Netflix AI Dashboard")
 
@@ -189,7 +187,6 @@ if not banner_found:
         </p>
     </div>
     """, unsafe_allow_html=True)
-
 
 if page == "🏠 Home":
     st.title("🎬 Netflix AI Recommendation Engine")
