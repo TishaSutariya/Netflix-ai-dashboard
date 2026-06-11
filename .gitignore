@@ -14,5 +14,11 @@ env/
 .env
 
 .streamlit/
+
+
 __pycache__/
 *.pyc
+
+models/*.npy
+models/*.faiss
+models/*.pkl
