@@ -14,3 +14,5 @@ env/
 .env
 
 .streamlit/
+__pycache__/
+*.pyc
